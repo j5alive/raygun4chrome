@@ -46,6 +46,9 @@ function saveChanges() {
 
   // Save it using the Chrome extension storage API.
   chrome.storage.sync.set(appData, function () {
+    // notify the background js of the user data change
+    chrome.runtime.sendMessage('reloadConfiguration');
+
     location.href = 'main.html';
   });
 }

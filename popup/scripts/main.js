@@ -38,10 +38,9 @@ function loadData() {
     }
     if (items.rg_app_domains) {
       var domains = JSON.parse(items.rg_app_domains);
-
       whitelistDomains = domains;
-      renderListOfDomains();
     }
+    renderListOfDomains();
   });
 }
 
@@ -53,13 +52,18 @@ function renderListOfDomains() {
     var currentTab = tabs[0],
       currentDomain = extractDomain(currentTab.url);
 
-    whitelistDomains.forEach(function (domain) {
-      if (domain === currentDomain) {
-        whitelist += '<strong>' + domain + '</strong><br/>';
-      } else {
-        whitelist += domain + '<br/>';
-      }
-    });
+    if (whitelistDomains.length > 0) {
+      whitelistDomains.forEach(function(domain) {
+        if (domain === currentDomain) {
+          whitelist += '<strong>' + domain + '</strong><br/>';
+        } else {
+          whitelist += domain + '<br/>';
+        }
+      });
+    }
+    else {
+      whitelist = '<strong>Click "Add Current Domain" to enable now</strong>';
+    }
 
     displayedWhitelist.innerHTML = whitelist;
   });

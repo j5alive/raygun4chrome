@@ -1,8 +1,8 @@
 
-var elt = document.createElement('script');
-elt.type = 'text/javascript';
-elt.src = chrome.extension.getURL('raygun.min.js');
-document.getElementsByTagName('head')[0].appendChild(elt);
+//var elt = document.createElement('script');
+//elt.type = 'text/javascript';
+//elt.src = chrome.extension.getURL('raygun.min.js');
+//document.getElementsByTagName('head')[0].appendChild(elt);
 
 //document.onreadystatechange = function () {
 //  if (document.readyState == "interactive") {

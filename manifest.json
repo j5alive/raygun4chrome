@@ -12,19 +12,6 @@
     "default_popup": "popup/index.html"
   },
 
-  "content_scripts": [
-    {
-      "matches": [ "http://localhost:51507/*" ],
-      "js": [ "raygun-inject.js" ],
-      "run_at": "document_end"
-    },
-    {
-      "matches": [ "http://localhost:51507/*" ],
-      "js": [ "raygun-config.js" ],
-      "run_at": "document_idle"
-    }
-  ],
-
   "background": {
     "scripts": ["background.js"]
   },
@@ -36,5 +23,7 @@
     "storage",
     "http://*/",
     "https://*/"
-  ]
+  ],
+
+  "content_security_policy": "script-src 'self' https://api.raygun.com; default-src 'self' https://api.raygun.com; style-src 'unsafe-inline' https://api.raygun.com; connect-src https://api.raygun.com"
 }
