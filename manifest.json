@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Raygun",
+  "description": "Capture pulse events and crash reporting errors",
+  "version": "0.1",
+  "icons": { "128": "logo.png" },
+
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_title": "Raygun Pulse and Crash Reporting",
+    "default_popup": "popup/index.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ "http://localhost:51507/*" ],
+      "js": [ "raygun-inject.js" ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [ "http://localhost:51507/*" ],
+      "js": [ "raygun-config.js" ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [ "raygun.min.js", "raygun.js" ],
+
+  "permissions": [
+    "https://api.raygun.com/*"
+  ]
+}
