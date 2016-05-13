@@ -9,12 +9,37 @@ function getId() {
   return hex;
 }
 
-function isUrlMatch(url) {
-  //TODO: match against a whitelist
-  if (url.indexOf('http://localhost') === 0) {
-    return true;
+function extractDomain(url) {
+  var domain;
+  //find & remove protocol (http, ftp, etc.) and get domain
+  if (url.indexOf("://") > -1) {
+    domain = url.split('/')[2];
   }
-  return false;
+  else {
+    domain = url.split('/')[0];
+  }
+
+  //find & remove port number
+  domain = domain.split(':')[0];
+
+  return domain.toLowerCase();
+}
+
+var whitelistDomains = [];
+
+function isUrlMatchToWhitelist(url) {
+  var domain = extractDomain(url);
+  return whitelistDomains.includes(domain);
+}
+
+
+function loadWhitelistedDomains() {
+  chrome.storage.sync.get(['rg_app_domains'], function (items) {
+    if (items.rg_app_domains) {
+      var domains = JSON.parse(items.rg_app_domains);
+      whitelistDomains = domains;
+    }
+  });
 }
 
 // on install/update of plugin set a ID for the user if not already set
@@ -26,20 +51,24 @@ chrome.runtime.onInstalled.addListener(function () {
       chrome.storage.sync.set({ rg_user_id: id });
     }
   });
+
+  loadWhitelistedDomains();
 });
 
 
-//chrome.runtime.onMessage.addListener(function (message, sender) {
-//  debugger;
-//});
+chrome.runtime.onMessage.addListener(function (message, sender) {
+  if (message === 'reloadWhitelist') {
+    loadWhitelistedDomains();
+  }
+});
 
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (changeInfo.status && changeInfo.url && changeInfo.status === 'loading') {
-    if (isUrlMatch(changeInfo.url)) {
+    if (isUrlMatchToWhitelist(changeInfo.url)) {
 
       var innerCode = [
-        'var rg4chrome = window.Raygun.init("UYzfZmWyRcx6wVmXJRGSEA==", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
+        'var rg4chrome = Raygun.init("UYzfZmWyRcx6wVmXJRGSEA==", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
         'rg4chrome.attach();'
       ];
 

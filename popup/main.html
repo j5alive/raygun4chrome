@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Raygun</title>
+
+  <link href="styles/vendor.css" type="text/css" rel="stylesheet"/>
+  <link href="styles/screen.css" type="text/css" rel="stylesheet" media="screen"/>
+  <link href="styles/vendor-custom.css" type="text/css" rel="stylesheet" media="screen"/>
+
+  <script src="scripts/main.js"></script>
+
+  <style>
+    body {
+      min-width: 550px;
+    }
+  </style>
+</head>
+<body class='layout'>
+
+<header class="layout__header layout__header--dark">
+  <div class="center center-1120">
+    <a href="http://raygun.com/" target="_blank" class="raygun-logo">Raygun</a>
+  </div>
+</header>
+
+<div class="page-container">
+  <div class="center center-640">
+
+    <div class="module">
+      <div class="module__body">
+        <div class="module-content module-content--padding-horizontal module-content--padding-top">
+
+          <table class="ei-sidebar-table">
+            <tbody>
+            <tr>
+              <td>Name:</td>
+              <td><span id="UserName"></span></td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><span id="UserEmail"></span></td>
+            </tr>
+            <tr>
+              <td>API Key:</td>
+              <td><span id="AppAPIKey"></span></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top">Enabled for:</td>
+              <td><span id="Domains"></span></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="signup-submit">
+            <button id="AddCurrentDomain" class="button button-40 button-green button-after button-block">
+              <strong>Add Current Domain</strong>
+            </button>
+          </div>
+
+          <div class="signup-submit">
+            <button id="RemoveCurrentDomain" class="button button-40 button-red button-after button-block">
+              <strong>Remove Current Domain</strong>
+            </button>
+          </div>
+
+            <div class="signup-submit">
+              <a id="EditConfiguration" class="button button-40 button-blue button-after button-block" href="configure.html">
+                <strong>Edit settings</strong>
+              </a>
+            </div>
+
+            <div class="login-actions clearfix">
+              <p class="is-left">
+                <a id="ResetSettings" class="link-primary" href="#">Reset settings</a>
+              </p>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
