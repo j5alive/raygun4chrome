@@ -3,107 +3,62 @@
 <head>
   <title>Raygun</title>
 
-  <link href="styles/vendor.css" type="text/css" rel="stylesheet" />
-  <link href="styles/screen.css" type="text/css" rel="stylesheet" media="screen" />
-  <link href="styles/vendor-custom.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="styles/vendor.css" type="text/css" rel="stylesheet"/>
+  <link href="styles/screen.css" type="text/css" rel="stylesheet" media="screen"/>
+  <link href="styles/vendor-custom.css" type="text/css" rel="stylesheet" media="screen"/>
 
   <script src="scripts/configure.js"></script>
 
   <style>
     body {
-        min-width:550px;
+      min-width: 550px;
     }
   </style>
 </head>
 <body class='layout'>
 
-  <header class="layout__header layout__header--dark">
-    <div class="center center-1120">
-      <a href="http://raygun.com/" class="raygun-logo">Raygun</a>
-    </div>
-  </header>
+<header class="layout__header layout__header--dark">
+  <div class="center center-1120">
+    <a href="http://raygun.com/" target="_blank" class="raygun-logo">Raygun</a>
+  </div>
+</header>
 
-  <div class="page-container">
-    <div class="center center-640">
-
-
-      <div class="module">
-        <div class="module__body">
-          <div class="module-content module-content--padding-horizontal module-content--padding-top">
-
-            <div class="signup-heading">
-              <h1 class="signup-heading__primary-heading">Start your free 30 day trial now</h1>
-              <h2 class="signup-heading__secondary-heading">Sign up, integrate and get app insights in minutes!</h2>
-            </div>
-
-            <form action="https://go.pardot.com/l/151281/2016-03-02/j5pv" class="form-auth" method="post">
-
-              <div class="auth-validation">
-                <div class="validation-summary-valid" data-valmsg-summary="true">
-                  <ul>
-                    <li style="display:none"></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="input-section input-text input-section--stacked">
-                <label>First name</label>
-                <input class="text-box single-line " data-val="true" data-val-required="&#39;First name&#39; should not be empty." id="FirstName" maxLength="" name="FirstName" placeholder="First Name" type="text" value=""/>
-              </div>
-
-              <div class="input-section input-text input-section--stacked">
-                <label>Last name</label>
-                <input class="text-box single-line " data-val="true" data-val-required="&#39;Last name&#39; should not be empty." id="LastName" maxLength="" name="LastName" placeholder="Last Name" type="text" value=""/>
-              </div>
-
-              <div class="input-section input-text input-section--stacked">
-                <label>Phone Number</label>
-                <input class="text-box single-line " id="PhoneNumber" maxLength="" name="PhoneNumber" placeholder="+0123456789 (optional)" type="text" value=""/>
-              </div>
-
-              <div class="input-section input-email input-section--stacked">
-                <div class="form-group">
-                  <label class="form-group__label">Email address</label>
-                  <div class="input-wrapper">
-                    <input class="input-style" data-val="true" data-val-email="&#39;Email address&#39; is not a valid email address." data-val-required="&#39;Email address&#39; should not be empty." id="EmailAddress" name="EmailAddress" placeholder="Email Address" type="email" value=""/>
-                  </div>
-                </div>
-              </div>
-
-              <div class="input-section input-password input-section--stacked">
-                  <label for="Password">Password</label>
-                  <input class="js-input-masked" data-val="true" data-val-length="Password must have at least 8 characters" data-val-length-min="8" data-val-required="&#39;Password&#39; should not be empty." id="Password" name="Password" placeholder="Password" type="password" />
-              </div>
-
-              <input id="GCLID" name="GCLID" type="hidden" value="" />
-              <input id="UtmCampaign" name="UtmCampaign" type="hidden" value="" />
-              <input id="UtmContent" name="UtmContent" type="hidden" value="" />
-              <input id="UtmMedium" name="UtmMedium" type="hidden" value="" />
-              <input id="UtmSource" name="UtmSource" type="hidden" value="" />
-              <input id="InitialLandingPage" name="InitialLandingPage" type="hidden" value="" />
-              <input id="InitialReferrer" name="InitialReferrer" type="hidden" value="" />
-              <input id="Timezone" name="Timezone" type="hidden" value="" />
+<div class="page-container">
+  <div class="center center-640">
 
 
-              <div class="signup-submit">
-                <button class="button button-40 button-green button-after button-block">
-                  <strong>Create my account now!</strong>
-                </button>
-              </div>
+    <div class="module">
+      <div class="module__body">
+        <div class="module-content module-content--padding-horizontal module-content--padding-top">
 
-              <div class="signup-terms">
-                <p class="text-grey text-center">
-                  By signing up for an account you are agreeing to our <a class="link-primary" href="https://raygun.com/terms">Terms &amp; Conditions</a>
-                </p>
-              </div>
-            </form>
-
+          <div class="signup-heading">
+            <h1 class="signup-heading__primary-heading">Start your free 30 day trial now</h1>
+            <h2 class="signup-heading__secondary-heading">Sign up, integrate and get app insights in minutes!</h2>
           </div>
+
+          <div class="input-submit">
+            <a class="button button-40 button-block button-green button-before button-after" href="signup.html">
+              Create my account now!
+            </a>
+          </div>
+
+          <div class="signup-heading" style="margin-top: 3em">
+            <h1 class="signup-heading__primary-heading">Already have a Raygun account</h1>
+            <h2 class="signup-heading__secondary-heading">Configure with your application API key now.</h2>
+          </div>
+
+          <div class="signup-submit">
+            <a class="button button-40 button-block button-blue button-before button-after" href="configure.html">
+              Configure your API key
+            </a>
+          </div>
+
         </div>
-        </div>
-        </div>
-        </div>
-  </body>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>
 
 

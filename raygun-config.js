@@ -1,18 +1,44 @@
+
+
 //'var rg4chrome = Raygun.constructNewRaygun();',
 
-var code = [
-  'var rg4chrome = Raygun.init("UYzfZmWyRcx6wVmXJRGSEA==", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
-  'rg4chrome.attach();'
-].join('\n');
+//var codeArray = [
+//  'var rg4chrome = Raygun.init("UYzfZmWyRcx6wVmXJRGSEA==", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
+//  'rg4chrome.attach();'
+//];
 
-var elt = document.createElement("script");
-elt.type = "text/javascript";
-elt.textContent = code;
-document.getElementsByTagName("body")[0].appendChild(elt);
+//var actualCode = '(' + function () {
+//  // All code is executed in a local scope.
+//  var rg4chrome = Raygun.init("UYzfZmWyRcx6wVmXJRGSEA==", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });
+//  rg4chrome.attach();
+//  chrome.storage.sync.get(['rg_user_email', 'rg_user_fname', 'rg_user_lname', 'rg_user_id'], function (items) {
+//    var uid = items.rg_user_id,
+//      email = items.rg_user_email,
+//      first = items.rg_user_fname,
+//      last = items.rg_user_lname;
+
+//    if (uid) {
+//      if (items.rg_user_email) {
+//        // we know who the user is
+//        rg4chrome.setUser(uid, false, email, first, first + ' ' + last, uid);
+//      } else {
+//        // anonymous but we should have a uuid
+//        rg4chrome.setUser(uid, true, '', '', '', uid);
+//      }
+//    }
+//  });
+//} + ')();';
+
+
+//var elt = document.createElement("script");
+//elt.type = "text/javascript";
+////elt.textContent = codeArray.join('\n');
+//elt.textContent = actualCode;
+//document.getElementsByTagName("body")[0].appendChild(elt);
+
 
     //var rg4chrome = Raygun.constructNewRaygun();
     //rg4chrome.init('UYzfZmWyRcx6wVmXJRGSEA==', { disablePulse: false, debugMode: true }).attach();
-
 
 //rg4js('apiKey', 'UYzfZmWyRcx6wVmXJRGSEA==');
 //rg4js('enableCrashReporting', true);

@@ -7,7 +7,7 @@
   <link href="styles/screen.css" type="text/css" rel="stylesheet" media="screen" />
   <link href="styles/vendor-custom.css" type="text/css" rel="stylesheet" media="screen" />
 
-  <script src="scripts/configure.js"></script>
+  <script src="scripts/signup.js"></script>
 
   <style>
     body {
@@ -19,7 +19,7 @@
 
   <header class="layout__header layout__header--dark">
     <div class="center center-1120">
-      <a href="http://raygun.com/" class="raygun-logo">Raygun</a>
+      <a href="http://raygun.com/" target="_blank" class="raygun-logo">Raygun</a>
     </div>
   </header>
 
@@ -36,7 +36,6 @@
               <h2 class="signup-heading__secondary-heading">Sign up, integrate and get app insights in minutes!</h2>
             </div>
 
-            <form action="https://go.pardot.com/l/151281/2016-03-02/j5pv" class="form-auth" method="post">
 
               <div class="auth-validation">
                 <div class="validation-summary-valid" data-valmsg-summary="true">
@@ -55,12 +54,6 @@
                 <label>Last name</label>
                 <input class="text-box single-line " data-val="true" data-val-required="&#39;Last name&#39; should not be empty." id="LastName" maxLength="" name="LastName" placeholder="Last Name" type="text" value=""/>
               </div>
-
-              <div class="input-section input-text input-section--stacked">
-                <label>Phone Number</label>
-                <input class="text-box single-line " id="PhoneNumber" maxLength="" name="PhoneNumber" placeholder="+0123456789 (optional)" type="text" value=""/>
-              </div>
-
               <div class="input-section input-email input-section--stacked">
                 <div class="form-group">
                   <label class="form-group__label">Email address</label>
@@ -74,17 +67,7 @@
                   <label for="Password">Password</label>
                   <input class="js-input-masked" data-val="true" data-val-length="Password must have at least 8 characters" data-val-length-min="8" data-val-required="&#39;Password&#39; should not be empty." id="Password" name="Password" placeholder="Password" type="password" />
               </div>
-
-              <input id="GCLID" name="GCLID" type="hidden" value="" />
-              <input id="UtmCampaign" name="UtmCampaign" type="hidden" value="" />
-              <input id="UtmContent" name="UtmContent" type="hidden" value="" />
-              <input id="UtmMedium" name="UtmMedium" type="hidden" value="" />
-              <input id="UtmSource" name="UtmSource" type="hidden" value="" />
-              <input id="InitialLandingPage" name="InitialLandingPage" type="hidden" value="" />
-              <input id="InitialReferrer" name="InitialReferrer" type="hidden" value="" />
-              <input id="Timezone" name="Timezone" type="hidden" value="" />
-
-
+              
               <div class="signup-submit">
                 <button class="button button-40 button-green button-after button-block">
                   <strong>Create my account now!</strong>
@@ -96,7 +79,6 @@
                   By signing up for an account you are agreeing to our <a class="link-primary" href="https://raygun.com/terms">Terms &amp; Conditions</a>
                 </p>
               </div>
-            </form>
 
           </div>
         </div>

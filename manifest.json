@@ -25,9 +25,16 @@
     }
   ],
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "web_accessible_resources": [ "raygun.min.js", "raygun.js" ],
 
   "permissions": [
-    "https://api.raygun.com/*"
+    "tabs",
+    "storage",
+    "http://*/",
+    "https://*/"
   ]
 }
