@@ -88,6 +88,24 @@ function ensureUserId() {
   });
 }
 
+
+function attachRaygun(url, tabId) {
+  if (apiKey && isUrlMatchToWhitelist(url)) {
+    chrome.tabs.executeScript(tabId, { file: 'raygun.min.js', runAt: 'document_start' }, function () {
+      var code = [
+          'var rg4chrome = Raygun.init("' + apiKey + '", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
+          'rg4chrome.attach();',
+          'rg4chrome.setUser("' + userData.uid + '", ' + userData.isAnonymous + ', "' + userData.email + '", "' + userData.firstName + '", "' + userData.fullName + '", "' + userData.uid + '");'
+      ];
+
+      chrome.tabs.executeScript(tabId, {
+        code: code.join('\n'),
+        runAt: 'document_idle'
+      });
+    });
+  }
+}
+
 function injectRaygun(url, tabId) {
   if (apiKey && isUrlMatchToWhitelist(url)) {
 
@@ -103,7 +121,7 @@ function injectRaygun(url, tabId) {
         code: injectLibraryLines.join('\n'),
         runAt: 'document_start'
       },
-      function(result) {
+      function() {
         var initCodeLines = [
           'var rg4chrome = Raygun.init("' + apiKey + '", { disablePulse: false, debugMode: true, apiUrl: "https://api.raygun.com", from: "onLoad" });',
           'rg4chrome.attach();',
@@ -148,5 +166,6 @@ chrome.runtime.onMessage.addListener(function (message) {
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (changeInfo.status && changeInfo.url && changeInfo.status === 'loading') {
     injectRaygun(changeInfo.url, tabId);
+    //attachRaygun(changeInfo.url, tabId);
   }
 });
